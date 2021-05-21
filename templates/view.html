@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard Tic Tac Toe</title>
+    
+    <style>
+        table tr th {
+font: 30px Lucida Handwriting;
+}
+body{
+background-color:#FFFF99;
+}
+a{
+font: 40px Lucida Handwriting;
+text-decoration:none;
+}
+    </style>
+</head>
+<div>
+<table>
+    <tr>
+        <th>Sno</th>
+        <th>Name</th>
+        <th>Won</th>
+        <th>Lost</th>
+
+    </tr>
+    {%for s in scoreall%}
+    <tr>
+        <th>{{s.Sno}}</th>
+        <th>{{s.Name}}</th>
+        <th>{{s.Won}}</th>
+        <th>{{s.Lost}}</th>
+    </tr>
+    {%endfor%}
+</table></div>
+<center>
+<a href="{%url 'game'%}">Play Game</a><br>
+<a href="{%url 'index'%}">Home</a></center>
+</body>
+</html>

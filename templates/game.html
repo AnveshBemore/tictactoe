@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Tic Tac Toe</title>
+    <style>
+
+p{
+display:inline-block;
+  width: 100px;
+  height:100px;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+p.o{
+font: 100px Lucida Handwriting;}
+
+div{
+display:inline-block;
+border: 1px solid black;
+margin-top:20px;
+margin:20px 0px 20px 700px;
+background-color:white;
+}
+.name2{
+margin-left:500px;
+}
+body{
+background-color:#FFA500;
+}
+table, th, td {
+  border: 1px solid black;
+}
+table{
+  margin-left:450px;
+  border-collapse: collapse;
+  border-spacing: 10px;
+  table-layout: fixed;
+  width: 600px;
+  height:600px;
+}
+td{
+text-align:center;}
+
+a{
+margin-left:700px;
+text-decoration:none;
+font: 40px Lucida Handwriting;
+}
+    </style>
+    
+</head>
+<body onload="">
+<form action="submit" method="post" >
+    {% csrf_token %}
+<p >Enter Player 1<br><input type="text" name="name1">
+    <p style="margin-left:600px;">Winner<input type="text" value="-1" name="winner" id="won" ></p>
+<p class="name2">Enter Player 2<br><input type="text" name="name2"></p>
+<table id="my-table">
+    <tr>
+        <td> <p  class="o" onclick="change();">_</p></td>
+        <td> <p  class="o"onclick="change();">_</p></td>
+        <td> <p  class="o" onclick="change();">_</p></td>
+</tr>
+    <tr>
+<td><p  class="o" onclick="change();">_</p></td>
+<td> <p  class="o" onclick="change();">_</p></td>
+<td><p  class="o" onclick="change();">_</p></td>
+</tr>
+    <tr>
+<td><p  class="o" onclick="change();">_</p></td>
+<td> <p  class="o" onclick="change();">_</p></td>
+<td> <p  class="o" onclick="change();">_</p></td>
+</tr>
+
+</table>
+<div onclick="winner();">&nbsp;&nbsp;Check&nbsp;&nbsp;</div>
+<input style="margin:20px 0px 20px 700px;" type="submit"  ><br>
+<a href="{%url 'index'%}" name="home">Home</a></center>
+    </form>
+    <script type="text/javascript"
+    >
+    
+function change(){
+        var o=document.getElementsByClassName("o");
+for(var i=0;i<o.length;i++){
+o[i].onclick= function(){
+chang(this)
+}
+}}
+function chang(ele){
+
+if(ele.innerHTML==="_"){
+v=(Number("1")).toString();
+ele.innerHTML="X";}
+else if(ele.innerHTML==="X") {
+v=(Number(!Number(ele.innerHTML))).toString();
+ele.innerHTML="O";
+}else{
+ele.innerHTML="X";
+}
+console.log(`${ele.innerHTML}`);
+}
+function winner(){
+document.getElementById("won").value;
+var a=document.getElementsByClassName("o");
+//alert(`${((a[0].innerHTML).toString()==='_' && (a[4].innerHTML).toString()==='_' && (a[8].innerHTML).toString()==='_')}`)
+//if( ((a[0].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[8].innerHTML).toString()==='1') || ((a[6].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[2].innerHTML).toString()==='1'))||((a[0].innerHTML).toString()==='1' && (a[3].innerHTML).toString()==='1' && (a[6].innerHTML).toString()==='1'))||((a[1].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[7].innerHTML).toString()==='1'))||(a[2].innerHTML).toString()==='1' && (a[5].innerHTML).toString()==='1' && (a[8].innerHTML).toString()==='1')||(a[0].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[8].innerHTML).toString()==='1')||(a[0].innerHTML).toString()==='1' && (a[1].innerHTML).toString()==='1' && (a[2].innerHTML).toString()==='1')||(a[3].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[5].innerHTML).toString()==='1')||(a[6].innerHTML).toString()==='1' && (a[7].innerHTML).toString()==='1' && (a[8].innerHTML).toString()==='1')){
+//alert("entered")
+//document.getElementById("won").value=1;
+//}else if( ((a[0].innerHTML).toString()==='0' && (a[4].innerHTML).toString()==='0' && (a[8].innerHTML).toString()==='0') || (a[6].innerHTML).toString()==='0' && (a[4].innerHTML).toString()==='0' && (a[2].innerHTML).toString()==='0')||(a[0].innerHTML).toString()==='0' && (a[3].innerHTML).toString()==='0' && (a[6].innerHTML).toString()==='0')||(a[1].innerHTML).toString()==='0' && (a[4].innerHTML).toString()==='0' && (a[7].innerHTML).toString()==='0')||(a[2].innerHTML).toString()==='0' && (a[5].innerHTML).toString()==='0' && (a[8].innerHTML).toString()==='0')||(a[0].innerHTML).toString()==='0' && (a[4].innerHTML).toString()==='0' && (a[8].innerHTML).toString()==='0')||(a[0].innerHTML).toString()==='0' && (a[1].innerHTML).toString()==='0' && (a[2].innerHTML).toString()==='0')||(a[3].innerHTML).toString()==='0' && (a[4].innerHTML).toString()==='0' && (a[5].innerHTML).toString()==='0')||(a[6].innerHTML).toString()==='0' && (a[7].innerHTML).toString()==='0' && (a[8].innerHTML).toString()==='0')){
+//alert("entered")
+//document.getElementById("won").value=0;
+//}
+//if( ((a[0].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[8].innerHTML).toString()==='1') || ((a[6].innerHTML).toString()==='1' && (a[4].innerHTML).toString()==='1' && (a[2].innerHTML).toString()==='1')){
+//alert("entered");
+//}
+var q=[
+[0,4,8],
+[2,4,6],
+[0,3,6],
+[1,4,7],
+[2,5,8],
+[0,1,2],
+[3,4,5],
+[6,7,8],
+]
+for(var i=0;i<8;i++ ){
+console.log(`${q[i][0]} ---0 `);
+console.log(`${q[i][1]} ---1 `);
+console.log(`${q[i][2]} ---2 `);
+console.log(`${(a[q[i][0]].innerHTML).toString()}----${(a[q[i][1]].innerHTML).toString()}----${(a[q[i][0]].innerHTML).toString()}--(${q[i][0]})`)
+if( ((a[q[i][0]].innerHTML).toString()==="X" && (a[q[i][1]].innerHTML).toString()==="X" && (a[q[i][2]].innerHTML).toString()==="X")){
+console.log("entered1");
+document.getElementById("won").value="X";
+return;
+}
+}
+for(var i=0;i<8;i++ ){
+console.log(i);
+if( ((a[q[i][0]].innerHTML).toString()==="O" && (a[q[i][1]].innerHTML).toString()==="O" && (a[q[i][2]].innerHTML).toString()==="O")){
+console.log("entered0");
+document.getElementById("won").value="O";
+}
+}
+//alert(`${document.getElementById("won").value} hello`);
+}
+
+
+
+    </script>
+</body>
+</html>
