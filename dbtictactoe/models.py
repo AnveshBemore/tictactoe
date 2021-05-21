@@ -4,5 +4,5 @@ from django.db import models
 class Score(models.Model):
     Sno=models.AutoField(primary_key=True)
     Name=models.CharField(max_length=200)
-    Won=models.BooleanField(default=False)
-    Lost=models.BooleanField(default=False)
+    Won=models.IntegerField(default=0)
+    Lost=models.IntegerField(default=0)

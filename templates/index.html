@@ -6,26 +6,28 @@
     
 </head>
 <style>
-body{
-    background-color:#B0E2FF;
-    font: 40px Lucida Handwriting;
+    body{
+        background-color:black;
+        font: 40px Lucida Handwriting;
+        color: white;
     }
-    p{
-    
-    margin-left:500px;
-    }
-    
+   #block{
+        margin: 15% 70% 10% 30% ;
+        width: 550px;
+
+   }
     a{
-    text-decoration:none;
+        text-decoration:none;
+        color: white;
     }
 
 </style>
 <body>
-<div class="block">
-    <p class="welcome">Welcome To Tic Tac Toe</p>
-    <p class="game"><a href="{%url  'game'%}">Enter Game</a> </p>
-    <p class="game"><a href="{%url  'view'%}">View Game History</a> </p>
-</div>
+    <div id="block">
+        <p class="welcome">Welcome To Tic Tac Toe</p>
+        <p class="game"><a href="{%url  'game'%}">Play Tic Tac Toe<</a> </p>
+        <p class="game"><a href="{%url  'view'%}">View Player Scores</a> </p>
+    </div>
 
 </body>
 </html>

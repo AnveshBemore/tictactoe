@@ -6,37 +6,42 @@
     
     <style>
         table tr th {
-font: 30px Lucida Handwriting;
-}
-body{
-background-color:#FFFF99;
-}
-a{
-font: 40px Lucida Handwriting;
-text-decoration:none;
-}
+            font: 30px Lucida Handwriting;
+        }
+        body{
+            background-color:black;
+            color: white;
+        }
+        a{
+            font: 40px Lucida Handwriting;
+            text-decoration:none;
+            color: white;
+        }
     </style>
 </head>
-<div>
-<table>
-    <tr>
-        <th>Sno</th>
-        <th>Name</th>
-        <th>Won</th>
-        <th>Lost</th>
+    <center>
+        <table>
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Won</th>
+                <th>Lost</th>
 
-    </tr>
-    {%for s in scoreall%}
-    <tr>
-        <th>{{s.Sno}}</th>
-        <th>{{s.Name}}</th>
-        <th>{{s.Won}}</th>
-        <th>{{s.Lost}}</th>
-    </tr>
-    {%endfor%}
-</table></div>
-<center>
-<a href="{%url 'game'%}">Play Game</a><br>
-<a href="{%url 'index'%}">Home</a></center>
+            </tr>
+            {%for s in scoreall%}
+            <tr>
+                <th>{{s.Sno}}</th>
+                <th>{{s.Name}}</th>
+                <th>{{s.Won}}</th>
+                <th>{{s.Lost}}</th>
+            </tr>
+            {%endfor%}
+        </table>
+
+        <center>
+            <a href="{%url 'game'%}">Play Tic Tac Toe</a><br>
+            <a href="{%url 'index'%}">Home</a>
+        </center>
+    </center>
 </body>
 </html>

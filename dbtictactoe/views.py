@@ -40,23 +40,65 @@ def submit(request):
         #     score=Score(Name=n1)
         #     score.save()
         #     print("name2")
-
+        if n1=="":
+            n1="Player 1"
+        if n2=="":
+            n="Player 2"
+        
         
         if one=='X':
             win = n1 + " winner"
-            score = Score(Name=n1, Won=True)
-            score.save()
-            score = Score(Name=n2)
-            score.save()
-            print("name1")
+            # score = Score(Name=n1, Won=True)
+            # score.save()
+            # score = Score(Name=n2)
+            # score.save()
+            
+            if n1 !="Player 1":
+                try:
+                    g=Score.objects.get(Name=n1)
+                    print(g.Won)
+                    g.Won=g.Won+1
+                    g.save()
+                except:
+                    g=Score(Name=n1,Won=1,Lost=0)
+                    g.save()
+            if n2 !="Player 1":
+                try:
+                    g=Score.objects.get(Name=n2)
+                    print(g.Lost)
+                    g.Lost=g.Lost+1
+                    g.save()
+                except:
+                    g=Score(Name=n2,Won=0,Lost=1)
+                    g.save()
+            
+
         elif one=='O':
-            win = n2 + " winner"
-            score = Score(Name=n2, Won=True)
-            score.save()
-            score = Score(Name=n1)
-            score.save()
+            win = n1 + " winner"
+            # score = Score(Name=n2, Won=True)
+            # score.save()
+            # score = Score(Name=n1)
+            # score.save()
+            if n2 !="Player 1":
+                try:
+                    g=Score.objects.get(Name=n2)
+                    print(g.Won)
+                    g.Won=g.Won+1
+                    g.save()
+                except:
+                    g=Score(Name=n2,Won=1,Lost=0)
+                    g.save()
+            if n1 !="Player 1":
+                try:
+                    g=Score.objects.get(Name=n1)
+                    print(g.Lost)
+                    g.Lost=g.Lost+1
+                    g.save()
+                except:
+                    g=Score(Name=n1,Won=0,Lost=1)
+                    g.save()
             print("name2")
-        else:
+        else :
             win="draw match"
         m={"w":win}
         return render(request,'winner.html',m)

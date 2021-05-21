@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <title>Winner</title>
     <style>
-        p{
-margin-left:550px;
-font: 40px Lucida Handwriting;
-}
-body{
+    p{
+        color: green;
+    }
+    body{
+        color: white;
+        background-color:black;
+        font: 40px Lucida Handwriting;
+    }
 
-background-color:#B0E2FF;}
-a{
-font: 40px Lucida Handwriting;
-text-decoration:none;
-}
+    a{
+        color: black;
+        
+        text-decoration:none;
+    }
     </style>
 </head>
 <body>
-<p>{{w}}</p>
-<center>
-<a href="{%url 'game'%}">Rematch</a><br>
-<a href="{%url 'index'%}">Home</a></center>
+    <center>
+        <p>{{w}}</p>
+        <a href="{%url 'game'%}">Rematch</a><br>
+        <a href="{%url 'index'%}">Home</a><br>
+        <a href="{%url  'view'%}">View Player Scores</a> 
+    </center>
 </body>
 </html>
