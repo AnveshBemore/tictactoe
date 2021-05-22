@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import dj_database_url 
 import dotenv
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # This is new:
@@ -89,6 +91,7 @@ DATABASES = {
         'PASSWORD':'Anvesh@123',
     }
 }
+import dj_database_url
 
 db_config = dj_database_url.config()
 if db_config:
