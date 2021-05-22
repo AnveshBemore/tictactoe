@@ -74,7 +74,7 @@ def submit(request):
             
 
         elif one=='O':
-            win = n1 + " winner"
+            win = n2 + " winner"
             # score = Score(Name=n2, Won=True)
             # score.save()
             # score = Score(Name=n1)
