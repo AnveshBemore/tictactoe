@@ -112,7 +112,7 @@
 <!--Tablee Tic Tac Toe-->
 <table id="my-table">
     <tr>
-        <td> <p  class="o" onclick="change();">_</p></td>
+        <td> <p  class="o" onclick="change();" >_</p></td>
         <td> <p  class="o"onclick="change();">_</p></td>
         <td> <p  class="o" onclick="change();">_</p></td>
    </tr>
@@ -141,7 +141,11 @@
 </div>
 </div>
 <script type="text/javascript">
-    
+    setloc();
+    function setloc(){
+        localStorage.setItem("i",0);
+
+    }
     function change(){
             var o=document.getElementsByClassName("o");
         for(var i=0;i<o.length;i++){
@@ -152,16 +156,27 @@
     }
     function chang(ele){
 
-        if(ele.innerHTML==="_"){
-            v=(Number("1")).toString();
-            ele.innerHTML="X";}
-        else if(ele.innerHTML==="X") {
-            v=(Number(!Number(ele.innerHTML))).toString();
-            ele.innerHTML="O";
-        }else{
+        // if(ele.innerHTML==="_"){
+        //     v=(Number("1")).toString();
+        //     ele.innerHTML="X";}
+        // else if(ele.innerHTML==="X") {
+        //     v=(Number(!Number(ele.innerHTML))).toString();
+        //     ele.innerHTML="O";
+        // }else{
+        //     ele.innerHTML="X";
+        // }
+        // console.log(`${ele.innerHTML}`);
+        var i=parseInt(localStorage.getItem("i"));
+        console.log(i);
+        if(i%2===0){
             ele.innerHTML="X";
+        }else{
+            ele.innerHTML="O";
         }
-        console.log(`${ele.innerHTML}`);
+        ele.onclick=null;
+        i=i+1;
+        localStorage.setItem("i",i);
+
         winner();
     }
     function winner(){
